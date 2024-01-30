@@ -20,7 +20,7 @@ import java.sql.SQLException;
 public class productInventorylist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String dbdrive="com.mysql.jdbc.Driver";
-    protected String sql;
+	protected String sql;
     /**
      * @see HttpServlet#HttpServlet()
      */
