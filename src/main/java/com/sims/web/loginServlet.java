@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/loginServlet")
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private String result;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,6 +35,7 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//login staffname and password
 	        response.setContentType("text/html");
 			String staffname=request.getParameter("name");
 			String password=request.getParameter("password");
@@ -42,7 +43,7 @@ public class loginServlet extends HttpServlet {
 			staff.setName(staffname);
 			staff.setPassword(password);
 			ConnectionDB condb=new ConnectionDB();
-			String result = condb.loginSims(staff);
+		    result = condb.loginSims(staff);
 			response.getWriter().println(result);
 			response.sendRedirect("homePage.jsp");
 	}
