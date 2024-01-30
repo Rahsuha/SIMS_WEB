@@ -20,6 +20,7 @@ import java.sql.SQLException;
 public class productInventorylist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String dbdrive="com.mysql.jdbc.Driver";
+    protected String sql;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,7 +48,7 @@ public class productInventorylist extends HttpServlet {
 	ConnectionDB condb=new ConnectionDB();
 	condb.dbsqldrive(dbdrive);
 	Connection con=condb.getConnection();
-	String sql ="select * from Product";
+	sql ="select * from Product";
 	try {
 		PreparedStatement dbps = con.prepareStatement(sql);
 		 ResultSet rs = dbps.executeQuery();
