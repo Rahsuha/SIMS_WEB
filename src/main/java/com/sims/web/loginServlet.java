@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String result;
+	protected String staffname,password;
     /**
      * @see HttpServlet#HttpServlet()
      */
