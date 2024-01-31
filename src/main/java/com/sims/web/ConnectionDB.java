@@ -12,7 +12,7 @@ private String dburl="jdbc:mysql://localhost:3306/simswebapp";
 private String dbname="root";
 protected String password="22222";
 private String dbdrive="com.mysql.jdbc.Driver";
-
+protected String sql;
 public void dbsqldrive(String dbdrive) {
 	try {
 		Class.forName(dbdrive);
@@ -55,7 +55,7 @@ public String loginSims(Staff staff)
 {
 	dbsqldrive(dbdrive);
 	Connection con =getConnection();
-	String sql = "select * from STAFF where name=? and password=?";
+	 sql = "select * from STAFF where name=? and password=?";
 	String result = "Login Successfully";
 	
 	try {
