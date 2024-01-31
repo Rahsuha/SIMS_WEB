@@ -4,6 +4,6 @@
    
 3.The pull request is review by the reviewer. we, shouldn’t allow the same person to merge the pull request.
 
-4. When the final version is deployed in production Environment you can tag the commit ID so that for future purposes you will know which version has been released.
+4.When the final version is deployed in production Environment you can tag the commit ID so that for future purposes you will know which version has been released.
    
-5. Make sure there is no direct commit on any of the branches we should restrict the access. Each change must be committed, and a pull request must be raised and then merged to any branch.
+5.Make sure there is no direct commit on any of the branches we should restrict the access. Each change must be committed, and a pull request must be raised and then merged to any branch.
