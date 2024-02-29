@@ -1,0 +1,46 @@
+pipeline{
+agent any
+
+tools{
+maven 'maven-3.8.4'
+jdk 'jdk-11'
+}
+
+stages{
+stage("Clean") {
+  steps{
+      echo "Start Clean"
+      bat "mvn clean"
+  }
+}
+stage("Test"){
+steps{
+  echo "Start Test"
+  bat "mvn test"
+}
+}
+stage("Build"){
+steps{
+  echo "Start build"
+  bat "mvn install -DskipTests"
+}
+}
+
+stage("Sonar Scan"){
+	steps{
+	    script {
+		withSonarQubeEnv(installationName: 'Sonarqube',credentialsId: 'Sonar-jenkins-token') {
+			bat "\"C:\\Users\\abdul\\Downloads\\sonar-scanner-cli-5.0.1.3006-windows\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=jenkins_maven.eclipse -Dsonar.projectName=jenkins_maven.eclipse -Dsonar.sources=src/main -Dsonar.sourceEncoding=UTF-8 -Dsonar.language=jav -Dsonar.test=src/test -Dsonar.junit.reportsPath=target/surefire-reports -Dsonar.surefire.reportsPath=target/surefire-reports -Dsonar.jacoco.reportPath=target/jacoco.exec -Dsonar.java.binaries=target/classes -Dsonar.java.coveragePlugin=jacoco"
+		}
+		}
+	}
+}
+stage("Deploy"){
+	steps{
+	    script {
+		deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090')], contextPath: 'jenkins_maven.eclipse', war: '**/*.war'
+		}
+	}
+}
+}
+}
