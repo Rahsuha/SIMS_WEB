@@ -73,20 +73,4 @@ ConnectionDB connectDB= new ConnectionDB();
 		}
 	}
 
-	/**
-	 * Test method for {@link com.sims.web.ConnectionDB#loginSims(com.sims.web.Staff)}.
-	 */
-	@Test
-	void testLoginSims() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link com.sims.web.ConnectionDB#productStore(com.sims.web.Product)}.
-	 */
-	@Test
-	void testProductStore() {
-		fail("Not yet implemented");
-	}
-
 }
