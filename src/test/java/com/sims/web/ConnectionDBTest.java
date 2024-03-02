@@ -56,7 +56,7 @@ ConnectionDB connectDB= new ConnectionDB();
 	@Test
 	void testNewstaff() {
 	    connectDB.dbsqldrive(dbdrive);
-		Staff staffs=new Staff("Suhail","2345","suhail@gmail.com");
+		Staff staffs=new Staff("thasleem","12234","suhail@gmail.com");
 		Connection con =connectDB.getConnection();
 
 		String sql ="insert into STAFF values(?,?,?)";
@@ -72,21 +72,4 @@ ConnectionDB connectDB= new ConnectionDB();
 			System.out.println("Staff is not added");
 		}
 	}
-
-	/**
-	 * Test method for {@link com.sims.web.ConnectionDB#loginSims(com.sims.web.Staff)}.
-	 */
-	@Test
-	void testLoginSims() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link com.sims.web.ConnectionDB#productStore(com.sims.web.Product)}.
-	 */
-	@Test
-	void testProductStore() {
-		fail("Not yet implemented");
-	}
-
 }
