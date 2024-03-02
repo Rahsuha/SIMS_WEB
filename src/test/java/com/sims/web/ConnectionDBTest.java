@@ -72,5 +72,4 @@ ConnectionDB connectDB= new ConnectionDB();
 			System.out.println("Staff is not added");
 		}
 	}
-
 }
