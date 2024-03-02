@@ -1,3 +1,4 @@
+def appcode = "${env.APPCODE}"
 pipeline{
 agent any
 
@@ -30,7 +31,7 @@ stage("Sonar Scan"){
 	steps{
 	    script {
 		withSonarQubeEnv(installationName: 'Sonarqube',credentialsId: 'Sonar-jenkins-token') {
-			bat "\"C:\\Users\\abdul\\Downloads\\sonar-scanner-cli-5.0.1.3006-windows\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=sims_webpage -Dsonar.projectName=sims_webpage -Dsonar.sources=src/main -Dsonar.sourceEncoding=UTF-8 -Dsonar.language=jav -Dsonar.test=src/test -Dsonar.junit.reportsPath=target/surefire-reports -Dsonar.surefire.reportsPath=target/surefire-reports -Dsonar.jacoco.reportPath=target/jacoco.exec -Dsonar.java.binaries=target/classes -Dsonar.java.coveragePlugin=jacoco"
+			bat "\"C:\\Users\\abdul\\Downloads\\sonar-scanner-cli-5.0.1.3006-windows\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=${appcode} -Dsonar.projectName=${appcode} -Dsonar.sources=src/main -Dsonar.sourceEncoding=UTF-8 -Dsonar.language=jav -Dsonar.test=src/test -Dsonar.junit.reportsPath=target/surefire-reports -Dsonar.surefire.reportsPath=target/surefire-reports -Dsonar.jacoco.reportPath=target/jacoco.exec -Dsonar.java.binaries=target/classes -Dsonar.java.coveragePlugin=jacoco"
 		}
 		}
 	}
@@ -38,7 +39,7 @@ stage("Sonar Scan"){
 stage("Deploy"){
 	steps{
 	    script {
-		deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090')], contextPath: 'sims_webpage', war: '**/*.war'
+		deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090')], contextPath: '${appcode}', war: '**/*.war'
 		}
 	}
 }

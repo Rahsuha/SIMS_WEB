@@ -17,6 +17,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
 </servlet-mapping>
+<servlet>
+    <servlet-name>RegisterAccountServlet</servlet-name>
+    <servlet-class>com.sims.web.RegisterAccountServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegisterAccountServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+</servlet-mapping>
   <servlet> 
  <servlet-name>removeProduct</servlet-name> 
  <servlet-class>removeProduct</servlet-class> 
