@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ConnectionDB {
 private String dburl="jdbc:mysql://localhost:3306/simswebapp";
 private String dbname="root";
-private String password="22222";
+protected String password="22222";
 private String dbdrive="com.mysql.jdbc.Driver";
 
 public void dbsqldrive(String dbdrive) {
