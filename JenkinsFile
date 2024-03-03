@@ -39,7 +39,7 @@ stage("Sonar Scan"){
 stage("Deploy"){
 	steps{
 	    script {
-		deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090')], contextPath: '${appcode}', war: '**/*.war'
+		deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090')], contextPath: 'simswebapp', war: '**/*.war'
 		}
 	}
 }
