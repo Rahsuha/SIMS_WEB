@@ -43,7 +43,7 @@ stage("Deploy"){
 		}
 	}
 }
-stage("Trigger the selenium test case"){
+stage("Trigger the selenium test cases"){
 	steps{
 	   build job : "selenium_sims_webpage", wait : true
 	}
