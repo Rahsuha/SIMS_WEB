@@ -27,7 +27,7 @@ steps{
 }
 }
 
-stage("Sonar Scan"){
+stage("SonarScan"){
 	steps{
 	    script {
 		withSonarQubeEnv(installationName: 'Sonarqube',credentialsId: 'Sonar-jenkins-token') {
