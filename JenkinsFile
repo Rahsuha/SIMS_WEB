@@ -16,7 +16,7 @@ stage("Clean") {
 }
 stage("Test"){
 steps{
-  echo "Start Unit Test"
+  echo "Start Unit Test cases"
   bat "mvn test"
 }
 }
