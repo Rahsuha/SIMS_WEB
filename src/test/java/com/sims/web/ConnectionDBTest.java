@@ -25,6 +25,7 @@ private String dbdrive="com.mysql.jdbc.Driver";
 ConnectionDB connectDB= new ConnectionDB();
 	/**
 	 * @throws java.lang.Exception
+	 * setup new connection
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
